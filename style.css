@@ -1,23 +1,18 @@
 
 /*add '/Document/' in front of font path when uploading to github*/
 @font-face {
-  font-family: "Gravity";
-  src: url("fonts/ABCGravity-Condensed.woff");
-}
-
-@font-face {
   font-family: "Nimbus";
-  src: url("fonts/NimbusRomMonM.woff");
+  src: url("/Documentation/fonts/NimbusRomMonM.woff");
 }
 
 @font-face {
   font-family: "Unica77";
-  src: url("fonts/Unica77Regular.woff");
+  src: url("/Documentation/fonts/Unica77Regular.woff");
 }
 
 @font-face {
   font-family: "UnicaMono";
-  src: url("fonts/Unica77LLMono-Regular.woff");
+  src: url("/Documentation/fonts/Unica77LLMono-Regular.woff");
 }
 
 
