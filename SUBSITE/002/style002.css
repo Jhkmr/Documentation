@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    /*--------------------------------------------------------------------------------------*/
+    font-family: "font", sans-serif; /* Font family */
+    background-color: #ffffff; /* Background color - can be changed later */
+    color: #000000; /* Text color */
+    /*--------------------------------------------------------------------------------------*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Load the variable font from the local folder */
+  @font-face {
+    font-family: "font";
+    src: url("fonts/PlusMinusVF.woff") format("truetype");
+    font-weight: 100 1000; /* Specify the weight range */
+    font-stretch: 75% 100%; /* Optional: if the font supports width (wdth) */
+    font-display: swap; /* Ensures that text is visible while the font is loading */
+  }
+
+  /* Container with centered text */
+#container {
+    /*-------------------------------------------------------------------------------------*/
+    font-size: 26rem; /* Font size - can be adjusted later */
+    /*-------------------------------------------------------------------------------------*/
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }

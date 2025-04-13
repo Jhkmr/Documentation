@@ -1,0 +1,70 @@
+
+/*add '/Document/' in front of font path when uploading to github*/
+@font-face {
+  font-family: "Gravity";
+  src: url("fonts/ABCGravity-Condensed.woff");
+}
+
+@font-face {
+  font-family: "Signifier-RegularItalic";
+  src: url("fonts/Signifier-RegularItalic.woff2");
+}
+
+
+body {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 230px auto;
+}
+
+h1 {
+  font-family: "Gravity";
+  grid-row: 1-2;
+  margin: 0px;
+  text-shadow: 0 0 2px #000, 0 0 2px #000;
+}
+
+/*
+.table-row-odd, .table-row-odd:hover {
+  background-color: #e3f4ff !important;
+}
+*/
+table {
+  font-family: 'Signifier-RegularItalic';
+  grid-row: 2-3;
+  margin-top: 11px;
+}
+
+
+
+tbody tr {
+  cursor: pointer;
+}
+
+.sort {
+  text-align: left;
+  cursor: pointer;
+}
+
+.numb {
+  width: 50px;
+}
+.number{
+  width: 50px;
+  padding-left: 5px;
+}
+
+.names {
+  width: 80%;
+}
+
+.types {
+  width: 300px;
+}
+.type {
+  width: 300px;
+}
+
+.hide {
+  display: none;
+}
