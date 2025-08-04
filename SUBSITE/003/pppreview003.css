@@ -1,0 +1,94 @@
+/* PRINT PREVIEW IN THE BROWSER */
+@media screen{
+	body{
+		background: black;
+		/* Set a page counter */
+		counter-reset: page-counter;
+		/*width: calc(var(--page-width) * 4);*/
+		width: 100vw;
+		height: 80vh;
+		padding-top: 10vh;
+		padding-bottom: 10vh;
+	}
+
+	.spreads {
+		height: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+
+	/* Page settings */
+	.page{
+		height: 100%;
+		aspect-ratio: 1 / 1.42;
+		break-after: always;
+		position: relative;
+		background: white;
+		display: flex;
+	}
+
+	.firstPage{
+		margin-right:25px;
+		display: none;
+	}
+
+	.lastPage{
+		margin-left:25px;
+	}
+
+	.page:not(.firstPage):nth-of-type(2) {
+    margin-left: calc((100vh / 1.42) - 17vw);
+	margin-right:2.5px;
+}
+
+
+
+	.page:not(.firstPage):not(:nth-of-type(2)):nth-child(even){
+		margin-right:2.5px;
+		margin-left:25px;
+	}
+	.page:not(.firstPage):nth-child(odd){
+		margin-right:25px;
+		margin-left:2.5px;
+	}
+
+
+	/* Display HTML element with the .print class */
+	.print{
+		display: none;
+	}
+
+	/* Doesn't display HTML element with the .screen class */
+	.screen{
+		display: block;
+	}
+
+	/* ------- PAGINATION -------*/
+
+	/* Add counter to page */
+	.page::after{
+		counter-increment: page-counter;
+		content:counter(page-counter);
+		position: absolute;
+		bottom: var(--page-footer-bottom);
+	}
+
+	/* Place the page counter at the right for the right pages */
+	.page:nth-child(even)::after{
+		left: var(--page-footer-margin);
+	}
+
+	/* Place the page counter at the left for the left pages */
+	.page:nth-child(odd)::after{
+		right: var(--page-footer-margin);
+
+	}
+
+	/* Add .nopagination class to delete pagination on the .page you want */	
+	.page.nopagination::after{
+		content:"";
+	}
+
+}

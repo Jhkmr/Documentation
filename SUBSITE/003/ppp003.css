@@ -1,0 +1,163 @@
+/* PrePostPrint CSS Print framework */
+
+/*-------------- VARIABLES ---------*/
+/*EN — Change variable of the page width, page height, width and footer position*/
+:root {
+	--page-width: 14.85cm;
+	--page-height: 21cm;
+	/* Page margins */
+	--page-margin: 0cm;
+	/* Page counter position */
+	--page-footer-bottom: 0.4cm;
+	--page-footer-margin: 0.8cm;
+	--page-margin-left: 50px;
+	--page-even-margin: 5px;
+}
+
+/*--------- GENERAL STYLE -------*/
+
+body {
+	font-family: Helvetica, sans-serif;
+	margin: 0;
+}
+
+img {
+	width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+}
+
+/* Add .print class to display html elements only for the print */
+.print {
+	display: none;
+}
+
+/* Add .screen class to display html elements only for the print */
+.screen {
+	display: block;
+}
+
+/* Add .center class to horizontally center a HTML element */
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+
+.underlineOne {
+	text-decoration: underline;
+}
+
+.between{
+	display: none;
+}
+
+.betweenAdd{
+	display: none;
+}
+
+.underlineBetween {
+	display:block;
+	text-decoration: underline;
+}
+
+.underlineBetweenAdd {
+	display:block;
+	text-decoration: underline;
+}
+
+.betweenTwo{
+	display: none;
+}
+
+.betweenAddTwo{
+	display: none;
+}
+
+.underlineBetweenTwo {
+	display:block;
+	text-decoration: underline;
+}
+
+.underlineBetweenAddTwo {
+	display:block;
+	text-decoration: underline;
+}
+
+/*--------- PRINT STYLE -------*/
+
+/* Media queries : Apply styles in relation of the reading support of the webpage */
+@media print {
+	@page {
+		/* choosse the size of the pdf output */
+		size: A5;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		/* Set a page counter */
+		counter-reset: page-counter;
+	}
+
+	/* Page settings */
+	.page {
+		width: calc(var(--page-width) + 1);
+		height: calc(calc(var(--page-height) - var(--page-margin) * 2) - 1mm);
+		padding: var(--page-margin);
+		break-after: always;
+		position: relative;
+	}
+
+	/* Display HTML element with the .print class */
+	.print {
+		display: block;
+	}
+
+	/* Doesn't display HTML element with the .screen class */
+	.screen {
+		display: none;
+	}
+
+	/* Running title, to apply running title add .runin-title class to .page */
+	.runin-ttl::before {
+		content: "titre courant";
+	}
+
+	/* ------- PAGINATION -------*/
+
+	/* Add counter to page */
+	.page::after {
+		counter-increment: page-counter;
+		content: counter(page-counter);
+		position: absolute;
+		bottom: var(--page-footer-bottom);
+	}
+
+	/* Place the page counter at the right for the right pages */
+	.page:nth-child(even)::after {
+		left: var(--page-footer-margin);
+	}
+
+	/* Place the page counter at the left for the left pages */
+	.page:nth-child(odd)::after {
+		right: var(--page-footer-margin);
+	}
+
+	/* Add .nopagination class to delete pagination on the .page you want */
+	.page.nopagination::after {
+		content: "";
+	}
+
+	/* Add .plainimage class to display image on plain page */
+	.plainimage {
+		width: calc(var(--page-width) + 1);
+		height: calc(calc(var(--page-height) - var(--page-margin) * 2) - 1mm);
+		margin: auto;
+		-o-object-fit: contain;
+		object-fit: contain;
+	}
+}

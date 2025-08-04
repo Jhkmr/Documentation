@@ -1,0 +1,136 @@
+/* PRINT PREVIEW IN THE BROWSER */
+@media screen{
+	body{
+		background: black;
+		/* Set a page counter */
+		counter-reset: page-counter;
+		/*width: calc(var(--page-width) * 4);*/
+		width: 100vw;
+		height: 80vh;
+		padding-top: 10vh;
+		padding-bottom: 10vh;
+	}
+
+	.spreads {
+		height: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+
+	/* Page settings */
+	.page{
+		height: 100%;
+		aspect-ratio: 1 / 1.42;
+		break-after: always;
+		position: relative;
+		background: white;
+		display: flex;
+	}
+
+	.firstPage{
+		margin-right:25px;
+		display: none;
+	}
+
+	.page:not(.firstPage):nth-of-type(2) {
+    margin-left: calc((100vh / 1.42) - 17vw);
+	margin-right:2.5px;
+}
+
+	.page:not(.firstPage):nth-child(odd){
+		margin-right:25px;
+		margin-left:2.5px;
+	}
+	.page:not(.firstPage):not(:nth-of-type(2)):nth-child(even){
+		margin-right:2.5px;
+		margin-left:25px;
+	}
+
+
+	/* ------- PAGINATION -------*/
+
+	/* Add counter to page */
+	.page::after{
+		counter-increment: page-counter;
+		content:counter(page-counter);
+		position: absolute;
+		bottom: var(--page-footer-bottom);
+	}
+
+	/* Place the page counter at the right for the right pages */
+	.page:nth-child(even)::after{
+		left: var(--page-footer-margin);
+	}
+
+	/* Place the page counter at the left for the left pages */
+	.page:nth-child(odd)::after{
+		right: var(--page-footer-margin);
+
+	}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+#triggerButton {
+	position: absolute;
+}
+
+#triggerButtonTwo {
+	position: absolute;
+}
+
+
+.underlineOne {
+	text-decoration: underline;
+}
+
+.one {
+	display: none;
+}
+
+.two {
+	display: none;
+}
+
+.stateOne {
+	display: flex;
+}
+
+.stateTwo {
+	display: flex;
+}
+
+.initial {
+	display: none;
+}
+
+.activate {
+	display: flex;
+}
+
+.three {
+	position: absolute;
+	display: none;
+}
+
+.four {
+	position: absolute;
+	display: none;
+}
+
+.stateThree {
+	display: flex;
+
+}
+
+.stateFour {
+	display: flex;
+}
+
+}

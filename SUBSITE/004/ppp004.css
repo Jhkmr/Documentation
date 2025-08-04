@@ -1,0 +1,148 @@
+/* PrePostPrint CSS Print framework */
+
+/*-------------- VARIABLES ---------*/
+/*EN — Change variable of the page width, page height, width and footer position*/
+:root {
+	--page-width: 14.85cm;
+	--page-height: 21cm;
+	/* Page margins */
+	--page-margin: 0cm;
+	/* Page counter position */
+	--page-footer-bottom: 0.4cm;
+	--page-footer-margin: 0.8cm;
+	--page-margin-left: 50px;
+	--page-even-margin: 5px;
+}
+
+/*--------- GENERAL STYLE -------*/
+
+body {
+	font-family: Helvetica, sans-serif;
+	margin: 0;
+}
+
+img {
+	width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+}
+
+/* Add .print class to display html elements only for the print */
+.print {
+	display: block;
+}
+
+/* Add .screen class to display html elements only for the print */
+.screen {
+	display: none;
+}
+
+
+
+/*--------- PRINT STYLE -------*/
+
+/* Media queries : Apply styles in relation of the reading support of the webpage */
+@media print {
+	@page {
+		/* choosse the size of the pdf output */
+		size: A5;
+	}
+
+	body {
+		margin: 0;
+		padding: 0;
+		/* Set a page counter */
+		counter-reset: page-counter;
+	}
+
+	section {
+		display: block;
+	}
+
+	/* Page settings */
+	.page {
+		width: calc(var(--page-width) + 1);
+		height: calc(calc(var(--page-height) - var(--page-margin) * 2) - 1mm);
+		padding: var(--page-margin);
+		break-after: always;
+		position: relative;
+	}
+
+	
+
+
+	/* Add counter to page */
+	.page::after{
+		counter-increment: page-counter;
+		content:counter(page-counter);
+		position: absolute;
+		bottom: var(--page-footer-bottom);
+	}
+
+	/* Place the page counter at the right for the right pages */
+	.page:nth-child(even)::after{
+		left: var(--page-footer-margin);
+	}
+
+	/* Place the page counter at the left for the left pages */
+	.page:nth-child(odd)::after{
+		right: var(--page-footer-margin);
+
+	}
+
+	.firstPage{
+		display: none;
+	}
+	
+	.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	height: 100%;
+	font-size: 14pt;
+}
+
+
+.one {
+	display: none;
+}
+
+.two {
+	display: none;
+}
+
+.stateOne {
+	display: flex;
+}
+
+.stateTwo {
+	display: flex;
+}
+.initial {
+	display: none;
+}
+
+.activate {
+	display: flex;
+}
+
+.three {
+	position: absolute;
+}
+
+.four {
+	position: absolute;
+}
+
+.stateThree {
+	display: flex;
+
+}
+
+.stateFour {
+	display: flex;
+}
+
+}
