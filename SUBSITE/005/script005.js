@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Live Text Board</title>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      font-family: monospace;
-    }
-    #grid {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      background-color: #f0f0f0;
-    }
-    .char {
-      position: absolute;
-      font-size: 14px;
-      user-select: none;
-    }
-  </style>
-</head>
-<body>
-  <div id="grid"></div>
-  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
-  <script>
-    const socket = io("https://live-text-backend.onrender.com");
+const socket = io("https://live-text-backend.onrender.com");
     const grid = document.getElementById('grid');
 
     socket.on('init', data => {
@@ -61,6 +33,3 @@
         socket.emit('edit', { position: pos, char: char[0] });
       }
     });
-  </script>
-</body>
-</html>
