@@ -1,5 +1,5 @@
 const socket = io("https://live-text-backend.onrender.com");
-    const grid = document.getElementById('grid');
+const grid = document.getElementById('grid');
 
     socket.on('init', data => {
       for (let pos in data) drawChar(pos, data[pos]);
