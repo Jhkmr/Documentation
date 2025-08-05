@@ -19,25 +19,24 @@
 body {
   margin: 20px;
   display: grid;
-  grid-template-columns: 440px auto;
 }
 
 h1 {
   font-family: "Nimbus";
-  color: white;
+  color: black;
   font-size: 18px;
-  letter-spacing: 22.5px;
+  letter-spacing: 1px;
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: clip;
-  grid-row: 1-2;
+  grid-row: 1;
   /*text-shadow: 0 0 2px #000, 0 0 2px #000;*/
 }
 
 
 h1 span{
-  background-color: black;
+  background-color: none;
 }
 
 /*
@@ -46,29 +45,30 @@ h1 span{
 }
 */
 table {
-  font-size: 22px;
+  font-size: 16px;
   grid-row: 2-3;
   margin-top: 8px;
 }
 
 thead {
   font-family: 'Nimbus';
-  font-size: 16pt;
-  letter-spacing: 3px;
+  font-size: 12pt;
+  letter-spacing: 1px;
 }
 
 th {
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 tbody tr {
   cursor: pointer;
-  font-family: 'Unica77';
-  font-size: 16pt;
+  font-family: 'Nimbus';
+  font-size: 12pt;
+  letter-spacing: 1px;
 }
 
 td {
-  padding-top:5px;
+  padding-top:0px;
 }
 
 .sort {
@@ -77,23 +77,23 @@ td {
 }
 
 .numb {
-  font-family: 'UnicaMono';
-  width: 200px;
+  font-family: 'Nimbus';
+  width: 50px;
 }
 .number{
-  width: 200px;
+  width: 50px;
   padding-left: 0px;
 }
 
 .names {
-  width: 70%;
+  width: 200px;
 }
 
 .types {
-  width: 600px;
+  width: 100px;
 }
 .type {
-  width: 600px;
+  width: 100px;
 }
 
 .hide {
@@ -109,9 +109,9 @@ td {
 
 a {
   display: inline-block;
-  font-family: 'UnicaMono';
-  font-size: 28px;
-  transform-origin: 9px 21px;
+  font-family: 'Nimbus';
+  font-size: 25px;
+  transform-origin: 5px 17px;
   transition: all .3s ease-in-out;
 }
 

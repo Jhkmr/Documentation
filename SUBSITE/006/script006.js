@@ -1,4 +1,4 @@
-const socket = io("https://your-backend.onrender.com"); // Replace with your backend URL
+const socket = io("https://live-text-backend.onrender.com");
     const grid = document.getElementById("grid");
     const input = document.getElementById("hiddenInput");
 
@@ -49,7 +49,7 @@ const socket = io("https://your-backend.onrender.com"); // Replace with your bac
         const pos = `${cursor.x},${cursor.y}`;
         drawChar(pos, chars[i]);
         socket.emit('edit', { position: pos, char: chars[i] });
-        cursor.x += 1; // Move cursor to right
+        cursor.x += 1;
       }
       e.target.value = '';
     });
