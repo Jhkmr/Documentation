@@ -1,10 +1,18 @@
 
 /*add '/Document/' in front of font path when uploading to github*/
+
 @font-face {
   font-family: "Nimbus";
   src: url("/Documentation/fonts/NimbusRomMonM.woff");
 }
 
+/*this is for live view*/
+/*
+@font-face {
+  font-family: "Nimbus";
+  src: url("./fonts/NimbusRomMonM.woff");
+}
+*/
 @font-face {
   font-family: "Unica77";
   src: url("/Documentation/fonts/Unica77Regular.woff");
@@ -64,11 +72,12 @@ tbody tr {
   cursor: pointer;
   font-family: 'Nimbus';
   font-size: 12pt;
-  letter-spacing: 1px;
 }
 
 td {
   padding-top:0px;
+  overflow: hidden;
+  position: relative;
 }
 
 .sort {
@@ -86,8 +95,15 @@ td {
 }
 
 .names {
-  width: 200px;
+  width: 300px;
 }
+.name:after{
+    content: " ....................................................................................................................... ";
+    position: absolute;
+    padding-left: 1px;
+    letter-spacing: -1px;
+}
+
 
 .types {
   width: 100px;
@@ -110,8 +126,9 @@ td {
 a {
   display: inline-block;
   font-family: 'Nimbus';
-  font-size: 25px;
-  transform-origin: 5px 17px;
+  font-size: 20px;
+  transform-origin: 36px 13px;
+  padding-left: 30px;
   transition: all .3s ease-in-out;
 }
 
