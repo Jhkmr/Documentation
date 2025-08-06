@@ -1,0 +1,151 @@
+/* PRINT PREVIEW IN THE BROWSER */
+@media screen{
+	body{
+		background: black;
+		/* Set a page counter */
+		/*width: calc(var(--page-width) * 4);*/
+		width: 100vw;
+		height: 80vh;
+		padding-top: 10vh;
+		padding-bottom: 10vh;
+	}
+
+	.spreads {
+		height: 100%;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	h1 {
+		font-size: 6pt;
+		font-family: 'Publico';
+		text-transform: uppercase;
+	
+	}
+	/* Page settings */
+	.page{
+		height: 80vh;
+		aspect-ratio: 1 / 1.48;
+		break-after: always;
+		position: relative;
+		background: white;
+	}
+	.layout{
+		display: grid;
+		height: 96.8%;
+		grid-template-columns: repeat(4, 23.5%);
+		grid-template-rows: 10% 1fr 1fr 1fr;
+		column-gap: 2%;
+		margin-top: 2.5%;
+		margin-bottom: 2.5%;
+		position: relative;
+	}
+
+	.left{
+		margin-left: 4mm;
+		margin-right: 6mm;
+	}
+
+	.right{
+		margin-left: 6mm;
+		margin-right: 4mm;
+	}
+/* Header settings */
+	.header{
+		font-size: 6pt;
+		font-family: 'Publico';
+		text-transform: uppercase;
+	}
+
+	.hTitle {
+		text-align: end;
+		white-space: nowrap;
+		overflow: visible;
+		grid-column: 2 / 3;
+		grid-row: 1;
+	}
+
+/* Interaction settings */
+	.main {
+		font-size: 970pt;
+		font-family: 'Publico';
+		grid-column: 1 / 4;
+		overflow: visible;
+		position: absolute;
+		margin-left: -12mm;
+		margin-top: 2mm;
+		filter: url(#bloatFilter); /* default filter */
+	    transition: filter 0.1s ease;
+	}
+
+	.pTitle{
+		font-family: 'Publico';
+		font-size: 14pt;
+		text-transform: uppercase;
+		grid-row: 4;
+	}
+
+/* Paragraph settings */
+	p {
+		margin: 0;
+    	padding: 0;
+	}
+
+	.text {
+		font-size: 7.5pt;
+		font-family: 'Plain';
+		line-height: 10pt;
+		width: 73mm;
+		grid-column: 3 / 5;
+		overflow: visible;
+		grid-row: 2 / 3;
+		position: absolute;
+	}
+
+	.pIndent {
+		padding-left: 10mm;
+	}
+
+	.firstPage{
+		display: none;
+		/*margin-left: calc((100vh / 1.48) - 1vw);
+		margin-right:25px;
+		*/
+	}
+
+	.page:not(.firstPage):nth-of-type(2) {
+    margin-left: calc((100vh / 1.48) - 11.5vw);
+	margin-right:2.5px;
+	}
+
+	.page:not(.firstPage):nth-child(odd){
+		margin-right:25px;
+		margin-left:2.5px;
+	}
+	.page:not(.firstPage):not(:nth-of-type(2)):nth-child(even){
+		margin-right:2.5px;
+		margin-left:25px;
+	}
+
+
+	/* ------- PAGINATION -------*/
+.page-number {
+  align-self: start;
+  justify-self: start;
+  counter-increment: page-counter;
+  content: counter(page-counter); /* won't work in real element, so set via JS if needed */
+}
+
+	/* Place the page counter at the right for the right pages */
+.page:nth-child(even) .page-number {
+  grid-column: 1;
+}
+
+	/* Place the page counter at the left for the left pages */
+.page:nth-child(odd) .page-number {
+  grid-column: 4;
+  justify-self: end;
+}
+
+}
