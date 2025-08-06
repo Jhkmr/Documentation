@@ -1,0 +1,24 @@
+/*add '/Document/' in front of font path when uploading to github*/
+/*
+@font-face {
+  font-family: "Nimbus";
+  src: url("/Documentation/fonts/NimbusRomMonM.woff");
+}
+*/
+/*this is for live view*/
+
+@font-face {
+  font-family: "Nimbus";
+  src: url("./fonts/NimbusRomMonM.woff");
+}
+
+
+@font-face {
+  font-family: "Publico";
+  src: url("./fonts/PublicoRoman.woff2");
+}
+
+@font-face {
+  font-family: "Plain";
+  src: url("./fonts/PlainRegular.woff2");
+}
