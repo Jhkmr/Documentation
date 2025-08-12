@@ -22,3 +22,13 @@
   font-family: "Plain";
   src: url("./fonts/PlainRegular.woff2");
 }
+
+@font-face {
+  font-family: "Fragment Mono";
+  src: url("./fonts/FragmentMonoRegular.woff2");
+}
+
+@font-face {
+  font-family: "Fragment Mono Italic";
+  src: url("./fonts/FragmentMonoItalic.woff2");
+}

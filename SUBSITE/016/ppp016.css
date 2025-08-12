@@ -122,29 +122,28 @@ h1, h2, h3, h4, h5, h6 {
 		position: relative;
 	}
 
-
 	.left{
-		margin-left: 9mm;
-		margin-right: 11mm;
+		margin-left: 11mm;
+		margin-right: 9mm;
 		grid-template-columns: repeat(4, 25%);
-		grid-template-rows: 2% 57vh 15.6vh 1fr;
+		grid-template-rows: 2% 50.5vh 1fr;
 	}
 
 	.right{
 		margin-left: 11mm;
 		margin-right: 9mm;
 		grid-template-columns: repeat(4, 23.5%);
-		grid-template-rows: 2% 57vh 15.6vh 1fr;
 		column-gap: 2%;
+		grid-template-rows: 2% 50.5vh 1fr;
 	}
 
 	/* Header settings */
 	.header{
 		font-size: 6pt;
-		font-family: 'Publico';
+		font-family: 'Fragment Mono';
 		text-transform: uppercase;
-		grid-row: 3;
-		margin-top: 7vh;
+		grid-row: 1;
+		/* margin-top: 7vh; */
 	}
 
 	.hTitle {
@@ -154,106 +153,28 @@ h1, h2, h3, h4, h5, h6 {
 		grid-column: 2 / 3;
 	}
 
-
 	.cTitle {
 		grid-column: 3 / 4;
 		padding-left: 10mm;
 	}
 
 /* System */
-/* System */
-	.boxOne {
-		grid-column: 3;
-		grid-row: 2;
-  		position: relative;
-		align-self: end;
-	}
-
-	.one {
-		grid-column: 3;
-		position: absolute;
-  		top: 0;
-  		left: 0;
-  		width: 100%;
-  		aspect-ratio: 1 / 1;
-		margin-top: -300%;
-  		background-color: blue;
-	}
-	
-	.boxTwo {
-		grid-column: 2;
-		grid-row: 2;
-  		position: relative;
-		align-self: end;
-	}
-
-	.two {
-		grid-column: 3;
-		position: absolute;
-  		top: 0;
-  		left: 0;
-  		width: 100%;
-  		aspect-ratio: 1 / 1;
-		margin-top: -200%;
-  		background-color: blue;
-	}
-
-	.boxThree {
-		grid-column: 1;
-		grid-row: 2;
-  		position: relative;
-		align-self: end;
-	}
-
-	.three {
-		grid-column: 3;
-		position: absolute;
-  		top: 0;
-  		left: 0;
-  		width: 100%;
-  		aspect-ratio: 1 / 1;
-		margin-top: -100%;
-  		background-color: blue;
-	}
 
 
 /* Interaction settings */
-	.main {
-		font-size: 1100pt;
-		font-family: 'Publico';
-		overflow: hidden;
-		grid-column: 1 / 4;	
-		position: absolute;
-		margin-left: 0mm;
-		margin-top: -130mm;
-	}
 
-	.main canvas {
-   		width: 100%;
-    	height: 100%;
-  }
-
-  	.change {
-	margin-right: 8px;
-  }
-
-  	.change canvas {
-  		pointer-events: none;
-  		vertical-align: middle;
-		position: absolute;
-		margin-top: -17px;
-		margin-left: -2px;
-}
+/* Title */
 
 	.pTitle{
-		font-family: 'Publico';
-		font-size: 14pt;
-		text-transform: uppercase;
+		font-family: 'Fragment Mono';
+		font-size: 12pt;
 		grid-row: 3;
+		text-transform: uppercase;
 		position: absolute;
-		margin-top: 6vh;
+		margin-top: 16.5vh;
 		margin-left: 15pt;
 	}
+
 
 /* Paragraph settings */
 	p {
@@ -262,49 +183,33 @@ h1, h2, h3, h4, h5, h6 {
 	}
 
 	.text {
-		font-size: 6.5pt;	
-		font-family: 'Publico';
-		text-transform: uppercase;
-		text-align: justify;
-		line-height: 9pt;	
+		font-size: 10pt;
+		font-family: 'Fragment Mono';
+		line-height: 10.5pt;		
 		hyphens: auto;	
+
 	}
 
 	.tLeft{
-		grid-column: 1 / 3;
-		margin-top: -3.8vh;
-		height: 60.8vh;
-		overflow: hidden;
-		grid-row: 2 / 3;
-		position: relative;
-	}
-	.tRight{
-		grid-column: 3 / 5;
-		height: 60.8vh;
-		margin-top: -3.8vh;
+		grid-column: 2 / 5;
+		height: 50.5vh;
+		width: 150%;
 		overflow: hidden;
 		grid-row: 2 / 3;
 		position: relative;
 	}
 
-	.bLeft{
-		grid-column: 1 / 3;
-		height: 57vh;
-		overflow: hidden;
-		grid-row: 4 / 5;
-		position: relative;
-	}
-	.bRight{
-		grid-column: 3 / 5;
-		height: 57vh;
-		overflow: hidden;
-		grid-row: 4 / 5;
-		position: relative;
-	}
-
-		.pIndent {
+	.pIndent {
 		padding-left: 10mm;
 	}
+
+.line {
+		font-size: 7pt;
+		font-family: 'Fragment Mono';
+		text-transform: uppercase;
+		grid-row: 3;
+		align-content: center;
+}
 
 
 	/* Add counter to page */
