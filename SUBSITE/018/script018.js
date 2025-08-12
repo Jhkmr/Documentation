@@ -73,8 +73,8 @@ btn.addEventListener("click", () => {
   const d = document.createElement("p");
   d.textContent = textDate;
 
-  copyText.insertBefore(p, copyText.firstChild);
-  copyDate.insertBefore(d, copyDate.firstChild);
+copyText.appendChild(p);
+copyDate.appendChild(d);
 
 
   socket.emit("new-entry", {
@@ -93,11 +93,10 @@ socket.on("new-entry", ({ text, date }) => {
   const d = document.createElement("p");
   d.textContent = date;
 
-  copyText.insertBefore(p, copyText.firstChild);
-  copyDate.insertBefore(d, copyDate.firstChild);
+copyText.appendChild(p);
+copyDate.appendChild(d);
 });
 
-// ✅ Receive full history when connecting
 socket.on("entry-history", (entries) => {
   entries.reverse().forEach(({ text, date }) => {
     const p = document.createElement("p");
@@ -106,7 +105,7 @@ socket.on("entry-history", (entries) => {
     const d = document.createElement("p");
     d.textContent = date;
 
-    copyText.insertBefore(p, copyText.firstChild);
-    copyDate.insertBefore(d, copyDate.firstChild);
+copyText.appendChild(p);
+copyDate.appendChild(d);
   });
 });
