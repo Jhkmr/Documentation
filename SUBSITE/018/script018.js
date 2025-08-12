@@ -73,20 +73,19 @@ btn.addEventListener("click", () => {
   const d = document.createElement("p");
   d.textContent = textDate;
 
-  copyText.insertBefore(p, history.firstChild);
-  copyDate.insertBefore(d, history.firstChild);
+  copyText.insertBefore(p, copyText.firstChild);
+  copyDate.insertBefore(d, copyDate.firstChild);
 
 
   socket.emit("new-entry", {
     text,
-    date: textDate
+    date: textDate,
   });
 
 });
 
 
 //live server
-
 socket.on("new-entry", ({ text, date }) => {
   const p = document.createElement("p");
   p.textContent = text;
@@ -96,4 +95,18 @@ socket.on("new-entry", ({ text, date }) => {
 
   copyText.insertBefore(p, copyText.firstChild);
   copyDate.insertBefore(d, copyDate.firstChild);
+});
+
+// ✅ Receive full history when connecting
+socket.on("entry-history", (entries) => {
+  entries.reverse().forEach(({ text, date }) => {
+    const p = document.createElement("p");
+    p.textContent = text;
+
+    const d = document.createElement("p");
+    d.textContent = date;
+
+    copyText.insertBefore(p, copyText.firstChild);
+    copyDate.insertBefore(d, copyDate.firstChild);
+  });
 });
