@@ -12,6 +12,11 @@
   src: url("./fonts/NimbusRomMonM.woff");
 }
 
+@font-face {
+  font-family: "Nimbus Italic";
+  src: url("./fonts/NimbusRomMonMItalic.woff2");
+}
+
 
 @font-face {
   font-family: "Publico";
