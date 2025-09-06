@@ -1,6 +1,8 @@
 body {
   margin: 10px;
   background-color: #888e75;
+  /* background-color: white; */
+
 }
 
 h1 {
@@ -29,7 +31,7 @@ h1 span{
 
 h2 {
   font-family: "Nimbus";
-  font-size: 14px;
+  font-size: 18px;
   grid-column: 1;
   grid-row: 2;
   margin: 0px;
@@ -93,6 +95,7 @@ td {
 
 .numb {
   width: 8%;
+  cursor: pointer;
 }
 
 .buffer {
@@ -105,7 +108,11 @@ td {
 }
 
 .names {
-  width: 32%;
+  width: 36%;
+}
+
+.name{
+  cursor: pointer;
 }
 
 /* .name:after{
@@ -129,6 +136,7 @@ table {
   white-space: pre;
   text-align: center;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .typeOne {
@@ -155,8 +163,15 @@ white-space: pre;
   opacity: 0;
 }
 
+.links {
+  width: auto;
+  white-space: pre;
+  text-align: end;
+}
+
 .hide {
   display: none;
+  cursor: default;
 }
 
 .hidden-row {
@@ -165,34 +180,39 @@ white-space: pre;
   letter-spacing: -0.3px;
 }
 
-a {
-  font-family: 'Nimbus';
-  font-size: 20px;
-  transform-origin: 36px 13px;
-  padding-left: 30px;
-  justify-self: end;  
-  transition: all .3s ease-in-out;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.description {
+  padding-left: 14.4%;
+  cursor: pointer;
 }
 
-a:link {
+
+.toggle {
+  font-family: 'Nimbus';
+  font-size: 16px;
+  /* transform-origin: 36px 13px; */
+  /* padding-left: 30px; */
+  transition: all .3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  cursor: crosshair;
+  width: 100%;
+}
+
+.toggle:link {
   text-decoration: none;
   color:black;
 }
 
-a:visited {
+.toggle:visited {
   text-decoration: none;
   color: black;
-  transform: rotate(180deg);
 }
 
-a:hover{
+/* a:hover{
   transform: rotate(180deg);
-}
+} */
 
-a:active {
+.toggle:active {
   text-decoration: none;
-  color: rgb(12, 0, 241);
+  color: black;
 }

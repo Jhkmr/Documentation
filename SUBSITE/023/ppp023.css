@@ -1,0 +1,413 @@
+/* PrePostPrint CSS Print framework */
+
+/*-------------- VARIABLES ---------*/
+/*EN — Change variable of the page width, page height, width and footer position*/
+:root {
+	--page-width: 155mm;
+	--page-height: 230mm;
+	/* Page margins */
+	--page-margin: 0cm;
+	/* Page counter position */
+	--page-margin-left: 50px;
+
+}
+
+/*--------- GENERAL STYLE -------*/
+
+body {
+	font-family: Helvetica, sans-serif;
+	margin: 0;
+}
+
+
+
+
+
+
+/*--------- PRINT STYLE -------*/
+
+/* Media queries : Apply styles in relation of the reading support of the webpage */
+@media print {
+
+@page {
+	/* choosse the size of the pdf output */
+	size: A4;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	/* Set a page counter */
+	counter-reset: page-counter;
+}
+
+/* Cover settings */
+	
+h1 {
+	font-size: 11pt;
+	font-family: 'Akkurat Pro';
+	text-transform: uppercase;
+}
+
+/* Header settings */
+
+header{
+	font-size: 9pt;
+	font-family: 'Akkurat Pro';
+	text-transform: uppercase;
+	grid-row: 3;
+	align-self: center;
+	/* margin-top: 7vh; */
+}
+
+.mono{
+	font-family: 'Akkurat Mono';
+	text-transform: none;
+}
+
+.descriptor {
+	grid-column: 1;
+}
+
+.addon {
+	grid-column: 2;
+}
+
+.von{
+	grid-row: 1;
+	align-self: start;
+}
+
+.zu{
+	grid-row: 2;
+	align-self: start;
+
+}
+
+.sTitle {
+	grid-column: 2;
+}
+
+.sNumber {
+ grid-column: 4;
+ justify-self: end;
+}
+
+.hTitle {
+	justify-self: start;
+	white-space: nowrap;
+	overflow: visible;
+	grid-column: 3;
+}
+
+/* Paragraph settings */
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+.text {
+	font-size: 11pt;
+	font-family: 'Akkurat Pro';
+	line-height: 11.5pt;		
+	hyphens: auto;
+	text-align: justify;
+	letter-spacing: -0.04em;
+	overflow: hidden;
+
+}
+
+.pageFive .tWide {
+	grid-column: 1 / 5;
+	height: 250mm;
+	width: 100%;
+	position: absolute;
+}
+
+.tNarrow{
+	column-gap: 2.5mm;
+	grid-column: 1 / 5;
+	column-fill: auto;
+}
+
+.pageSix .tNarrow{
+	grid-row: 4;
+	column-count: 2;
+	column-gap: 2.5mm;
+	height: 45mm;
+}
+
+.pageSeven .tNarrow{
+	grid-row: 1;
+	margin-top: -5.5mm;
+	column-count: 2;
+	column-gap: 2.5mm;
+	overflow: hidden;
+	height: 162mm;
+}
+
+.pageEight .layout.left .tNarrow:nth-of-type(1){
+	grid-row: 1;
+	grid-column: 1 / 3;
+	margin-top: -5.5mm;
+	height: 162mm;
+	overflow: hidden;
+}
+
+.pageEight .layout.left .tNarrow:nth-of-type(2){
+	grid-row: 4;
+	grid-column: 1 / 3;
+	height: 45mm;
+}
+
+.pageNine .layout.right .tNarrow:nth-of-type(1){
+	grid-row: 1;
+	grid-column: 3 / 5;
+	margin-top: -5.5mm;
+	height: 162mm;
+	overflow: hidden;
+}
+
+.pageNine .layout.right .tNarrow:nth-of-type(2){
+	grid-row: 4;
+	grid-column: 3 / 5;
+	height: 45mm;
+}
+
+.pageTen .layout.left .tNarrow:nth-of-type(1){
+	grid-row: 1;
+	margin-top: -5.5mm;
+	column-count: 2;
+	column-gap: 2.5mm;
+	height: 162mm;
+
+}
+
+.pageTen .layout.left .tNarrow:nth-of-type(2){
+	grid-row: 4;
+	column-count: 2;
+	column-gap: 2.5mm;
+	height: 45mm;
+}
+
+.pageEleven .tNarrow{
+	grid-row: 1;
+	margin-top: -5.5mm;
+	column-count: 2;
+	column-gap: 2.5mm;
+	height: 162mm;
+}
+
+.line {
+	font-size: 8pt;
+	font-family: 'Akkurat Mono';
+	text-transform: uppercase;
+	grid-row: 4;
+	position: relative;
+}
+
+/* Copy space */
+
+.copyText {
+	grid-column: 2;
+	grid-row: 1 / 4;
+	font-size: 7pt;
+	font-family: 'Fragment Mono';
+	text-transform: uppercase;
+	align-content: end;
+	margin-bottom: 7pt;
+}
+
+.copyDate {
+	grid-column: 3;
+	grid-row: 1 / 4;
+	font-size: 7pt;
+	font-family: 'Fragment Mono';
+	text-transform: uppercase;
+	align-content: end;
+	margin-bottom: 7pt;
+}
+
+/* Interaction settings */
+
+.interaction {
+	height: fit-content;
+	width: fit-content;
+	align-self: top;
+	grid-column: 4;
+	text-align: right;
+	width: 100%;
+}
+
+.button {
+  	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	align-self: top;
+}
+
+.button:hover {
+  -webkit-text-stroke: 1px;
+}
+
+.input{
+	font-family: 'Fragment Mono';
+	font-size: 7pt;
+	grid-row: 4;
+	text-transform: uppercase;
+	position: absolute;
+	margin-top: -0.8vh;
+	margin-left: 25pt;
+	cursor: text;
+}
+
+#input:empty:before {
+  content: attr(placeholder);
+  color: #aaa;
+  pointer-events:stroke;
+}
+#input {
+  padding: 8px;
+  min-height: 20px;
+}
+
+.time {
+	display: none;
+}
+
+/* Page settings */
+
+.page {
+	width: 210mm;
+	height: 297mm;
+	break-after: always;
+	position: relative;
+	overflow: hidden;
+	border: 1px dotted rgba(0, 0, 0, 0.4);
+	padding: 0;
+	margin: 0;
+} 
+
+
+.layout{
+	display: grid;
+	height: 222mm;
+	width: 145mm;
+	border: 1px dotted rgba(0, 0, 0, 0.4);
+	margin-top: 4mm;
+	margin-bottom: 4mm;
+	position: relative;
+}
+
+.left{
+	margin-left: 11mm;
+	margin-right: 7mm;
+	grid-template-columns: repeat(4, 23.5%);
+	column-gap: 2.5mm;
+	grid-template-rows: 10mm 147.5mm 26mm 1fr;
+}
+
+.right{
+	margin-left: 11mm;
+	margin-right: 7mm;
+	grid-template-columns: repeat(4, 23.5%);
+	column-gap: 2.5mm;
+	grid-template-rows: 10mm 147.5mm 26mm 1fr;
+}
+
+
+/* Pagination */
+
+.page-number {
+	font-family: 'Akkurat Pro';
+	font-size: 40pt;
+	margin-bottom: -5mm;
+	letter-spacing: -3px;
+	align-self: start;
+	justify-self: start;
+	content: counter(page-counter);
+	position: absolute;
+
+}
+
+.contents .page-number, .firstPage .page-number, .imprint .page-number{
+	display: none;
+}
+
+.right .page-number {
+	grid-row: 4;
+	align-self: end;
+}
+
+.left .page-number {
+	grid-row: 4;
+	align-self: end;
+}
+
+	/* Place the page counter at the right for the right pages */
+.page:nth-child(even) .page-number {
+  	grid-column: 1;
+}
+
+	/* Place the page counter at the left for the left pages */
+.page:nth-child(odd) .page-number {
+  	grid-column: 4;
+  	justify-self: end;
+}
+
+
+
+/* crop marks */
+
+.crop {
+	display: flex;
+	width: 165mm;
+}
+
+.tl {
+	position: relative;
+	width: 5mm;
+	height: 5mm;
+	top: 0mm;
+	left: 0mm;
+	border-right: 0.25mm solid black;
+	border-bottom: 0.25mm solid black;
+}
+
+.tr {
+	position: relative;
+	width: 5mm;
+	height: 5mm;
+	top: 0mm;
+	left: 155mm;
+	border-left: 0.25mm solid black;
+	border-bottom: 0.25mm solid black;
+}
+
+.bl {
+	position: relative;
+	width: 5mm;
+	height: 5mm;
+	left: 0mm;
+	border-right: 0.25mm solid black;
+	border-top: 0.25mm solid black;
+}
+
+.br {
+	position: relative;
+	width: 5mm;
+	height: 5mm;
+	left: 155mm;
+	border-left: 0.25mm solid black;
+	border-top: 0.25mm solid black;
+}
+
+
+}

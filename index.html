@@ -28,24 +28,63 @@
 						<th class="sort types TL-mobile-hide" data-sort="typeTwo">Layout</th>
 						<th class="sort types TL-mobile-hide" data-sort="typeThree">Live</th>
 						<th class="sort types TL-mobile-hide" data-sort="typeFour">Elements</th>
-				    	<!-- <th class="sort" data-sort="description">Link</th>					  -->
+				    	<th class="sort links">Info</th>					 
 					</tr>
 				</thead>
 				<tbody class="list">
-					<tr>
-				    	<td class="numb">020</td>
+					<tr class="clickable-row" data-href="SUBSITE/023/index023.html">
+				    	<td class="numb">023</td>
 				    	<td class="name">tbd</td>
 				    	<td class="type typeOne emptyType">ü</td>
 						<td class="type typeTwo">{     }</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/019/index019.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
-							tbd						
+							tdb							
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/022/index022.html">
+				    	<td class="numb">022</td>
+				    	<td class="name">Prepare Layout for Final Experiments</td>
+				    	<td class="type typeOne emptyType">ü</td>
+						<td class="type typeTwo">{     }</td>
+						<td class="type typeThree emptyType">ü</td>
+						<td class="type typeFour emptyType">ü</td>
+				    	<td class="description"><a class="toggle">+</a>
+							<div class="hide">
+							This step sets up a blueprint for the final layout to be used together with the interactions, including fixing any more issues with the print preview.						
+							</div>
+				    	</td>
+				    </tr>
+					<tr class="clickable-row" data-href="SUBSITE/021/index021.html">
+				    	<td class="numb">021</td>
+				    	<td class="name">Print Preview Bug Fix</td>
+				    	<td class="type typeOne emptyType">ü</td>
+						<td class="type typeTwo">{     }</td>
+						<td class="type typeThree emptyType">ü</td>
+						<td class="type typeFour emptyType">ü</td>
+				    	<td class="description"><a class="toggle">+</a>
+							<div class="hide">
+							The additional wrapper required for the web view interferes with the print preview and shrinks the final output. A js script removes this wrapper when printing.						
+							</div>
+				    	</td>
+				    </tr>
+					<tr class="clickable-row" data-href="SUBSITE/020/index020.html">
+				    	<td class="numb">020</td>
+				    	<td class="name">Flow Text</td>
+				    	<td class="type typeOne emptyType">ü</td>
+						<td class="type typeTwo">{     }</td>
+						<td class="type typeThree emptyType">ü</td>
+						<td class="type typeFour emptyType">ü</td>
+				    	<td class="description"><a class="toggle">+</a>
+							<div class="hide">
+							Flowing text from one div to another (across the "pages") ignores the paragraph styling and most importantly the text elements to be changed by the interaction. It is safer to treat the pages as separate and manually split the text. 					
+							</div>
+				    	</td>
+				    </tr>
+					<tr class="clickable-row" data-href="SUBSITE/019/index019.html">
 				    	<td class="numb">019</td>
 				    	<td class="name">Fix Scalability</td>
 				    	<!-- <td class="type">Layout</td> -->
@@ -53,14 +92,14 @@
 						<td class="type typeTwo">{     }</td>
 						<td class="type typeThree">{   }</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/019/index019.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							<div class="numb"></div>
 							Fixes Scalability of media screen to allow for mm and pt measurements identical to print output.						
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/018/index018.html">
 				    	<td class="numb">018</td>
 				    	<td class="name">Track Inputs</td>
 				    	<!-- <td class="type">Live Server</td> -->
@@ -68,13 +107,13 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type typeThree">{   }</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/018/index018.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							Remembers and communicates inputs from anyone interacting with the site.				
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/017/index017.html">
 				    	<td class="numb">017</td>
 				    	<td class="name">Custom Input</td>
 				    	<!-- <td class="type">Interaction</td> -->
@@ -82,13 +121,13 @@
 						<td class="type typeTwo">{     }</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/017/index017.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							Added custom written input that changes how the text appears.						
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/016/index016.html">
 				    	<td class="numb">016</td>
 				    	<td class="name">Layout Live Server</td>
 				    	<!-- <td class="type">Layout</td> -->
@@ -96,13 +135,13 @@
 						<td class="type typeTwo">{     }</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/016/index016.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							Layout for live server experiment.							
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/015/index015.html">
 				    	<td class="numb">015</td>
 				    	<td class="name">Print Marks</td>
 				    	<!-- <td class="type">Layout</td> -->
@@ -110,13 +149,13 @@
 						<td class="type typeTwo">{     }</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/015/index015.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							Added print marks to print preview.							
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/014/index014.html">
 				    	<td class="numb">014</td>
 				    	<td class="name">Setup for System</td>
 				    	<!-- <td class="type">Layout</td> -->
@@ -124,13 +163,13 @@
 						<td class="type typeTwo">{     }</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type typeFour">{       }</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/014/index014.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							typeTwo page layout that would accomodate a kind of graphic system on the left page, with text on the right page.							
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/013/index013.html">
 				    	<td class="numb">013</td>
 				    	<td class="name">Freeze Interaction</td>
 				    	<!-- <td class="type">Effects</td> -->
@@ -138,13 +177,13 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type	typeFour">{       }</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/013/index013.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							The cloned element is changed to a colon with a different text effect which relies on mouseX and mouseY instead of hover. Now, when the mouse is pressed the effect freezes.							
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/012/index012.html">
 				    	<td class="numb">012</td>
 				    	<td class="name">Cloning Elements (Underline)</td>
 				    	<!-- <td class="type">Effects</td> -->
@@ -152,13 +191,13 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type	typeFour">{       }</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/012/index012.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							The cloned element is changed to an underline.				
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/011/index011.html">
 				    	<td class="numb">011</td>
 				    	<td class="name">Cloning Elements</td>
 				    	<!-- <td class="type">Interaction</td> -->
@@ -166,13 +205,13 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/011/index011.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							The interactive element is cloned to the text element in order to demonstrate its use in text. 							
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/010/index010.html">
 				    	<td class="numb">010</td>
 				    	<td class="name">Distortion Effect</td>
 				    	<!-- <td class="type">Effects</td> -->
@@ -180,13 +219,13 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type	typeFour">{       }</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/010/index010.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							The hover effect is now distorted and fully stops when interacted with.					
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/009/index009.html">
 				    	<td class="numb">009</td>
 				    	<td class="name">Particle Effect</td>
 				    	<!-- <td class="type">Effects</td> -->
@@ -194,13 +233,13 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type	typeFour">{       }</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/009/index009.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							The hover effect is changed to include an effect from a sepparate js library called bloat.js. Since it's not a proximity effect, the printed version now looks the same. 							
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/008/index008.html">
 				    	<td class="numb">008</td>
 				    	<td class="name">Hover Interaction</td>
 				    	<!-- <td class="type">Interaction</td> -->
@@ -208,13 +247,13 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type	typeFour">{       }</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/008/index008.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							Hover changes the main element in both the screen and print version. However, the print version presents differently from the screen version.
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/007/index007.html">
 				    	<td class="numb">007</td>
 				    	<td class="name">Layout Setup</td>
 				    	<!-- <td class="type">Layout</td> -->
@@ -222,13 +261,13 @@
 						<td class="type	typeTwo">{     }</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/007/index007.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							Layout structure example that includes both longer text and an element that can be changed. The print view is adapted as well.
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/006/index006.html">
 				    	<td class="numb">006</td>
 				    	<td class="name">Type Anywhere</td>
 				    	<!-- <td class="type">Live Server</td> -->
@@ -236,13 +275,13 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type	typeThree">{   }</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/006/index006.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							<div class="hide">
 							A live server testing ground with a free typing grid. The page refreshes after a certain amount of time, due to server restraints.
 							</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/005/index005.html">
 				    	<td class="numb">005</td>
 				    	<td class="name">Single Character Typing</td>
 				    	<!-- <td class="type">Live Server</td> -->
@@ -250,13 +289,13 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type	typeThree">{   }</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/005/index005.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							  <div class="hide">
 								A live server testing ground with single character inputs. The page refreshes after a certain amount of time, due to server restraints.
 								</div>
 				    	</td>
 				    </tr>
-					<tr>
+					<tr class="clickable-row" data-href="SUBSITE/004/index004.html">
 				    	<td class="numb">004</td>
 				    	<td class="name">Overlaping Text</td>
 				    	<!-- <td class="type">Interaction</td> -->
@@ -264,13 +303,13 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/004/index004.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							  <div class="hide">
 								The interactions with the text are made visible through overlapping once printed.
 								</div>
 				    	</td>
 				    </tr>
-				   	<tr>
+				   	<tr class="clickable-row" data-href="SUBSITE/003/index003.html">
 				    	<td class="numb">003</td>
 				    	<td class="name">Underlines and Page Interface</td>
 				    	<!-- <td class="type">Interaction</td> -->
@@ -278,13 +317,13 @@
 						<td class="type	typeTwo">{     }</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type typeFour emptyType">ü</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/003/index003.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							  <div class="hide">
 								Underlines appear differently depending on interactions.
 								</div>
 				    	</td>
 				    </tr>
-				    <tr>
+				    <tr class="clickable-row" data-href="SUBSITE/002/index002.html">
 				    	<td class="numb">002</td>
 				    	<td class="name">PlusMinus Proximity</td>
 				    	<!-- <td class="type">Interaction</td> -->
@@ -292,13 +331,13 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type typeFour">{       }</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/002/index002.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							  <div class="hide">
 								PlusMinus symbol variable type animation. The symbol changes according to the proximity of the pointer.
 								</div>
 				    	</td>
 				    </tr>
-				    <tr>
+				    <tr class="clickable-row" data-href="SUBSITE/001/index001.html">
 				    	<td class="numb">001</td>
 				    	<td class="name">PlusMinus Across</td>
 				    	<!-- <td class="type">Interaction</td> -->
@@ -306,7 +345,7 @@
 						<td class="type typeTwo emptyType">ü</td>
 						<td class="type typeThree emptyType">ü</td>
 						<td class="type	typeFour">{       }</td>
-				    	<td class="description"><a onclick="window.open(this.href,'_blank');return false;" href="SUBSITE/001/index001.html">‹</a>
+				    	<td class="description"><a class="toggle">+</a>
 							  <div class="hide">
 									PlusMinus symbol variable type animation. The symbols change in a uniform way depending on the position of the pointer.
 								</div>
@@ -328,12 +367,12 @@
 
 		<div class="sources">
 					<h2>Reading Material</h2>
+		<p>Blas, Z., & Schirmacher, W. (2011). The Transreal: Political Aesthetics of Crossing Realities.</p>
+		<p>Richardson, L. (2021). Glitch feminism: a manifesto. <span class="italic">Gender, Place & Culture</span>, 29, 1500 - 1503.</p>
+		<p>O'Farrell, M., & Vallone, L. (1999). Virtual Gender: Fantasies of Subjectivity and Embodiment.</p>
 		<p>Kraemer, J. (2021). The Gender of the Interface: Coding Masculinity, Crafting Femininity among Berlin’s Creative Class. <span class="italic">Catalyst: Feminism, Theory, Technoscience</span>, 7(2).</p>
-		<p>Kraemer, J. (2021). The Gender of the Interface: Coding Masculinity, Crafting Femininity among Berlin’s Creative Class. <span class="italic">Catalyst: Feminism, Theory, Technoscience</span>, 7(2).</p>
-		<p>Kraemer, J. (2021). The Gender of the Interface: Coding Masculinity, Crafting Femininity among Berlin’s Creative Class. <span class="italic">Catalyst: Feminism, Theory, Technoscience</span>, 7(2).</p>
-		<p>Kraemer, J. (2021). The Gender of the Interface: Coding Masculinity, Crafting Femininity among Berlin’s Creative Class. <span class="italic">Catalyst: Feminism, Theory, Technoscience</span>, 7(2).</p>
-		<p>Kraemer, J. (2021). The Gender of the Interface: Coding Masculinity, Crafting Femininity among Berlin’s Creative Class. <span class="italic">Catalyst: Feminism, Theory, Technoscience</span>, 7(2).</p>
-		<p>Kraemer, J. (2021). The Gender of the Interface: Coding Masculinity, Crafting Femininity among Berlin’s Creative Class. <span class="italic">Catalyst: Feminism, Theory, Technoscience</span>, 7(2).</p>
+		<p>Miller, M. (2022). Shifting Symbols: The Gender Star. <span class="italic">Source Type.</span></p>
+		<p>Soulellis, P. (2021). What is Queer Typography? <span class="italic">Queer.Archive.Work</span></p>
 		</div>
 	</div>
 

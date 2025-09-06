@@ -29,11 +29,21 @@
 }
 
 @font-face {
-  font-family: "Fragment Mono";
-  src: url("./fonts/FragmentMonoRegular.woff2");
+  font-family: "Akkurat Pro";
+  src: url("./fonts/AkkuratPro-Regular.woff2");
 }
 
 @font-face {
-  font-family: "Fragment Mono Italic";
-  src: url("./fonts/FragmentMonoItalic.woff2");
+  font-family: "Akkurat Mono";
+  src: url("./fonts/Akkurat-Mono.woff2");
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("./fonts/Geist-Regular.woff2");
+}
+
+@font-face {
+  font-family: "Veyrin";
+  src: url("./fonts/Veyrin.woff2");
 }

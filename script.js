@@ -12,10 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   updateAltRowClasses(); 
 
+
   let tableRows = document.querySelectorAll('tbody tr');
   tableRows.forEach(function(row) {
     row.addEventListener('click', function (event) {
-      if (event.target && !event.target.classList.contains('description') && event.target.tagName === 'TD') {
+      if (event.target && event.target.tagName === 'A' && event.target.closest('.description')) {
         let hiddenRow = row.nextElementSibling;
         let rowExists = hiddenRow && hiddenRow.classList.contains('hidden-row');
 
@@ -47,6 +48,19 @@ document.addEventListener('DOMContentLoaded', function () {
           });
           newExpRow.style.display = '';
         }
+      }
+    });
+  });
+
+  document.querySelectorAll('.clickable-row').forEach(row => {
+    row.addEventListener('click', function (event) {
+      if (event.target.closest('.toggle')) {
+        return;
+      }
+
+      const href = row.dataset.href;
+      if (href) {
+        window.open(href, '_blank');
       }
     });
   });
