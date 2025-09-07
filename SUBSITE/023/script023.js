@@ -4,9 +4,8 @@ let originalParent = null;
 let originalNextSibling = null;
 let unwrappedNodes = [];
 
-// -------------------------------
-// 1. SCALE TO FIT SCREEN
-// -------------------------------
+//fit screen
+
 function scaleToFit() {
   const wrapper = document.querySelector('.wrapper');
   const page = document.querySelector('.spreads');
@@ -22,7 +21,6 @@ function scaleToFit() {
   wrapper.style.left = `${(window.innerWidth - pageWidth * scale) / 2}px`;
 }
 
-// On page load and resize
 window.addEventListener('load', () => {
   setTimeout(scaleToFit, 50);
 });
@@ -31,9 +29,8 @@ window.addEventListener('resize', () => {
   scaleToFit();
 });
 
-// -------------------------------
-// 2. BEFORE PRINT: Remove wrapper + spreads
-// -------------------------------
+//remove wrapper class
+
 function beforePrint() {
   originalWrapper = document.querySelector('.wrapper');
   if (!originalWrapper) return;
@@ -42,20 +39,19 @@ function beforePrint() {
   originalParent = originalWrapper.parentNode;
   originalNextSibling = originalWrapper.nextSibling;
 
-  // Move all children from spreads out into the DOM
+
   while (originalSpreads.firstChild) {
     const child = originalSpreads.firstChild;
     unwrappedNodes.push(child);
     originalParent.insertBefore(child, originalWrapper);
   }
 
-  // Remove the entire wrapper
+
   originalWrapper.remove();
 }
 
-// -------------------------------
-// 3. AFTER PRINT: Restore wrapper + spreads and scale
-// -------------------------------
+//restore wrapper and children
+
 function afterPrint() {
   if (!originalParent || unwrappedNodes.length === 0) return;
 
@@ -65,7 +61,6 @@ function afterPrint() {
   const newSpreads = document.createElement('div');
   newSpreads.className = 'spreads';
 
-  // Re-insert saved children
   unwrappedNodes.forEach((node) => {
     newSpreads.appendChild(node);
   });
@@ -73,13 +68,10 @@ function afterPrint() {
   newWrapper.appendChild(newSpreads);
   originalParent.insertBefore(newWrapper, originalNextSibling);
 
-  // Force reflow to fix any layout glitches
   void document.body.offsetHeight;
 
-  // Reapply scaling
   scaleToFit();
 
-  // Reset saved state
   originalWrapper = null;
   originalSpreads = null;
   originalParent = null;
@@ -87,9 +79,9 @@ function afterPrint() {
   unwrappedNodes = [];
 }
 
-// -------------------------------
-// 4. HANDLE PRINT EVENTS
-// -------------------------------
+
+//print
+
 if (window.matchMedia) {
   const mediaQueryList = window.matchMedia('print');
   mediaQueryList.addEventListener('change', (mql) => {
@@ -146,73 +138,133 @@ function updateDate() {
     if (minuteEl) minuteEl.textContent = minute.toString().padStart(2, '0');
     if (secondEl) secondEl.textContent = second.toString().padStart(2, '0');
   });
+
+  return `${day.toString().padStart(2, '0')}-${months[month]}-${year} ${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}:${second.toString().padStart(2, '0')}`;
 }
 
 updateDate();
 
-//interaction
+//interaction page 6
 
 const socket = io("https://live-text-backend.onrender.com");
 
-const input = document.getElementById("input");
-const btn = document.getElementById("button");
-const snap = document.getElementById("snapshot");
-const copyText = document.getElementById("copyText");
-const copyDate = document.getElementById("copyDate");
+const input = document.getElementById("inputSix");
+const btn = document.getElementById("buttonSix");
 
-const choice = document.querySelector(".choice");
-const change = document.querySelector(".change");
-const time = document.querySelector(".time");
+const copyTextSix = document.getElementById("copyTextSix");
+const copyDateSix = document.getElementById("copyDateSix");
 
-btn.addEventListener("click", () => {
+const changeSix = document.querySelectorAll(".changeSix");
 
-  updateDate();
-
+function submitEntry() {
   const text = input.textContent.trim();
-  const textDate = time.textContent.trim();  
-  
-  choice.textContent = text || ""; 
-  change.textContent = text || "*";
+  if (!text) return;
 
-  const p = document.createElement("p");
-  p.textContent = text;
+  const timestamp = updateDate();
 
-  const d = document.createElement("p");
-  d.textContent = textDate;
+  changeSix.forEach(el => {
+    el.textContent = text || "*";
+  })
 
-copyText.appendChild(p);
-copyDate.appendChild(d);
+  const textElSix = document.createElement("p");
+  textElSix.textContent = text;
+  copyTextSix.prepend(textElSix);
+
+  const dateElSix = document.createElement("p");
+  dateElSix.textContent = timestamp;
+  copyDateSix.prepend(dateElSix);
 
 
-  socket.emit("new-entry", {
+  socket.emit("new-entry-6", {
     text,
-    date: textDate,
+    date: timestamp,
   });
 
+
+  input.textContent = "";
+}
+
+btn.addEventListener("click", submitEntry);
+
+input.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    submitEntry();
+  }
+});
+
+//live server page 6
+socket.on("new-entry-6", ({ text, date }) => {
+  const textElSix = document.createElement("p");
+  textElSix.textContent = text;
+  copyTextSix.prepend(textElSix);
+
+  const dateElSix = document.createElement("p");
+  dateElSix.textContent = date;
+  copyDateSix.prepend(dateElSix);
+});
+
+socket.on("entry-history-6", (history) => {
+  history.forEach(({ text, date }) => {
+    const textElSix = document.createElement("p");
+    textElSix.textContent = text;
+    copyTextSix.appendChild(textElSix);
+
+    const dateElSix = document.createElement("p");
+    dateElSix.textContent = date;
+    copyDateSix.appendChild(dateElSix);
+  });
 });
 
 
-//live server
-socket.on("new-entry", ({ text, date }) => {
-  const p = document.createElement("p");
-  p.textContent = text;
+//interaction page eight
 
-  const d = document.createElement("p");
-  d.textContent = date;
+const symbolEl = document.getElementById("symbol");
+const symbolCopyEls = document.querySelectorAll(".symbolCopy");
+const symbolCopyTwoEls = document.querySelectorAll(".symbolCopyTwo");
 
-copyText.appendChild(p);
-copyDate.appendChild(d);
+const characters = ["✛", "✲", "✳", "✴", "✶", "✷", "✹", "✺"];
+
+const pageEight = document.querySelector(".pageEight");
+const pageNine = document.querySelector(".pageNine");
+
+function getCombinedBounds() {
+  const rectEight = pageEight.getBoundingClientRect();
+  const rectNine = pageNine.getBoundingClientRect();
+
+  const left = Math.min(rectEight.left, rectNine.left);
+  const right = Math.max(rectEight.right, rectNine.right);
+  const width = right - left;
+
+  return { left, right, width };
+}
+
+window.addEventListener("mousemove", (event) => {
+  const { left, right, width } = getCombinedBounds();
+  const mouseX = event.clientX;
+
+  if (mouseX >= left && mouseX <= right) {
+    const relativeX = mouseX - left;
+    const index = Math.floor((relativeX / width) * characters.length);
+    const clampedIndex = Math.min(index, characters.length - 1);
+
+    symbolEl.textContent = characters[clampedIndex];
+  }
 });
 
-socket.on("entry-history", (entries) => {
-  entries.reverse().forEach(({ text, date }) => {
-    const p = document.createElement("p");
-    p.textContent = text;
+window.addEventListener("mousedown", (event) => {
+  if (pageEight.contains(event.target) || pageNine.contains(event.target)) {
+    symbolCopyTwoEls.forEach((el, i) => {
+      const copyEl = symbolCopyEls[i];
+      if (copyEl) {
+        el.textContent = copyEl.textContent;
+      }
+    });
 
-    const d = document.createElement("p");
-    d.textContent = date;
-
-copyText.appendChild(p);
-copyDate.appendChild(d);
-  });
+    setTimeout(() => {
+      symbolCopyEls.forEach((el) => {
+        el.textContent = symbolEl.textContent;
+      });
+    }, 10);
+  }
 });
