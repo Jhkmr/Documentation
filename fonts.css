@@ -13,8 +13,18 @@
 }
 
 @font-face {
+  font-family: "Nimbus Bold";
+  src: url("./fonts/NimbusRomMonMBold.woff2");
+}
+
+@font-face {
   font-family: "Nimbus Italic";
   src: url("./fonts/NimbusRomMonMItalic.woff2");
+}
+
+@font-face {
+  font-family: "Nimbus Italic Bold";
+  src: url("./fonts/NimbusRomMonMBoldItalic.woff2");
 }
 
 

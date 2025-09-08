@@ -96,12 +96,77 @@ if (window.matchMedia) {
 window.addEventListener('beforeprint', beforePrint);
 window.addEventListener('afterprint', afterPrint);
 
+
+
+//cover 
+
+const titleArray = ["⚲", ";", "∶", "_", "◆", "⋯", "⌀", "∴", "✳", "✴", "✷", "✹", "✺"]
+
+const titleSymbols = document.querySelectorAll('.titleSymbol');
+
+document.addEventListener('click', () => {
+    titleSymbols.forEach(span => {
+      const randomSymbol = titleArray[Math.floor(Math.random() * titleArray.length)];
+      span.textContent = randomSymbol;
+    });
+  });
+
 //page numbering
 
 document.querySelectorAll('.page-number').forEach((el, i) => {
-    const pageNum = (i + 1).toString().padStart(2, '0'); //2 digits
+    const pageNum = (i + 1).toString().padStart(2, '0');
     el.textContent = `${pageNum}`;
   });
+
+//link to page
+
+document.querySelectorAll('.scroll-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href').substring(1);
+    const targetEl = document.getElementById(targetId);
+
+    if (targetEl) {
+      const targetRect = targetEl.getBoundingClientRect();
+      const absoluteRight = window.scrollX + targetRect.right;
+      const centerX = absoluteRight - (window.innerWidth / 2) + (targetRect.width / 2);
+
+      window.scrollTo({
+        left: centerX,
+        behavior: 'instant'
+      });
+    }
+  });
+});
+
+//page number index
+
+const numberIndex = document.getElementById('numberIndex');
+const originalValue = numberIndex.textContent;
+
+const numbers = ["04", "06", "08", "10"];
+
+const contentDate = document.querySelectorAll('.date .scroll-link');
+const contentTitle = document.querySelectorAll('.hTitle .scroll-link');
+
+function attachHoverEvents(element, number) {
+  element.addEventListener('mouseenter', () => {
+    numberIndex.textContent = number;
+  });
+  element.addEventListener('mouseleave', () => {
+    numberIndex.textContent = originalValue;
+  });
+}
+
+numbers.forEach((number, index) => {
+  const pD = contentDate[index];
+  const pT = contentTitle[index];
+
+  if (pD) attachHoverEvents(pD, number);
+  if (pT) attachHoverEvents(pT, number);
+});
+
 
 //date
 
@@ -261,10 +326,133 @@ window.addEventListener("mousedown", (event) => {
       }
     });
 
-    setTimeout(() => {
-      symbolCopyEls.forEach((el) => {
-        el.textContent = symbolEl.textContent;
-      });
-    }, 10);
+setTimeout(() => {
+  symbolCopyEls.forEach((el) => {
+    el.textContent = symbolEl.textContent;
+  });
+
+  // Collect the updated contents of symbolCopyTwo
+  const updatedCopyTwo = Array.from(symbolCopyTwoEls).map(el => el.textContent);
+
+  // Emit the updated array to the server
+  socket.emit("update-symbol-copy-two", updatedCopyTwo);
+}, 10);
   }
+});
+
+//live server page 9
+
+socket.on("update-symbol-copy-two", (newValues) => {
+  newValues.forEach((val, i) => {
+    if (symbolCopyTwoEls[i]) {
+      symbolCopyTwoEls[i].textContent = val;
+    }
+  });
+});
+
+socket.on("init-symbol-copy-two", (initialValues) => {
+  initialValues.forEach((val, i) => {
+    if (symbolCopyTwoEls[i]) {
+      symbolCopyTwoEls[i].textContent = val;
+    }
+  });
+});
+
+
+
+
+// interaction page 11
+
+document.addEventListener('DOMContentLoaded', () => {
+  const symbolOutput = document.getElementById('symbolEleven'); // blotter container
+  const nameOutputs = document.querySelector('.nameSymbolEleven'); // plain label container (single element)
+  const textOutputs = document.querySelectorAll('.changeTen'); // elements to get blotter effect
+  const symbolOptions = document.querySelectorAll('.optionEleven p');
+  let previouslySelected = null;
+
+  const clickCounts = {};
+  let blotter, blotterScope, blotterElement;
+
+  const material = new Blotter.LiquidDistortMaterial();
+  material.uniforms.uSpeed.value = 0.005;
+  material.uniforms.uVolatility.value = 0.01;
+
+  function updateBlotterText(symbol) {
+    const count = clickCounts[symbol] || 0;
+    material.uniforms.uSpeed.value = 0.005 + 0.005 * count;
+    material.uniforms.uVolatility.value = 0.01 + 0.0025 * count;
+
+    const blotterText = new Blotter.Text(symbol, {
+      size: 700,
+      fill: '#000',
+    });
+
+    // Remove old blotter canvas in #symbolEleven if exists
+    if (blotterElement && blotterElement.parentNode) {
+      blotterElement.parentNode.removeChild(blotterElement);
+    }
+
+    // Create and apply Blotter effect to #symbolEleven
+    blotter = new Blotter(material, { texts: blotterText });
+    blotterScope = blotter.forText(blotterText);
+    blotterScope.appendTo(symbolOutput);
+    blotterElement = symbolOutput.querySelector('canvas, svg');
+
+    // Apply blotter effect to each .changeTen element
+    textOutputs.forEach(span => {
+      // Remove existing blotter canvas/svg inside span
+      const existingCanvas = span.querySelector('canvas, svg');
+      if (existingCanvas) existingCanvas.remove();
+
+      // Create smaller blotter text for this span
+      const smallBlotterText = new Blotter.Text(symbol, {
+        size: 50,
+        fill: '#000',
+      });
+
+      // Create new blotter instance for the span (using same material)
+      const smallBlotter = new Blotter(material, { texts: smallBlotterText });
+      const smallScope = smallBlotter.forText(smallBlotterText);
+
+      // Append blotter canvas/svg to span
+      smallScope.appendTo(span);
+      span.classList.add('invisibleTen');
+    });
+  }
+
+  // Handle <p> clicks
+  symbolOptions.forEach(p => {
+    p.addEventListener('click', () => {
+      const symbol = p.childNodes[0]?.nodeValue.trim();
+      const labelSpan = p.querySelector('span');
+      const label = labelSpan ? labelSpan.textContent.trim() : '';
+
+      // Update plain label text
+      if (symbol) {
+        nameOutputs.textContent = label;    
+      }
+
+      // Restore previously hidden option if any
+      if (previouslySelected) {
+        previouslySelected.classList.remove('invisible');
+      }
+      // Hide current clicked option
+      p.classList.add('invisible');
+      previouslySelected = p;
+
+      // Emit symbol click event to server
+      socket.emit('symbol-clicked', symbol);
+    });
+  });
+
+  // Listen for initial click counts from server
+  socket.on('click-counts', (counts) => {
+    Object.assign(clickCounts, counts);
+  });
+
+  // Listen for updates and update blotter effect accordingly
+  socket.on('symbol-clicks-updated', ({ symbol, count }) => {
+    clickCounts[symbol] = count;
+    updateBlotterText(symbol);
+  });
 });

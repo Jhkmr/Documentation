@@ -41,10 +41,21 @@ body {
 
 /* Cover settings */
 	
+.mainTitle {
+	grid-column: 1/5;
+	grid-row: 1/5;
+	margin-top: -1.5mm;
+	margin-left: -1mm;
+}
+
 h1 {
-	font-size: 11pt;
+	font-size: 46pt;
+	line-height: 49pt;
+	letter-spacing: -1.5pt;
 	font-family: 'Akkurat Pro';
-	text-transform: uppercase;
+	margin: 0;
+	color: white;
+	font-weight: 400;
 }
 
 /* Header settings */
@@ -56,6 +67,7 @@ header{
 	grid-row: 3;
 	align-self: center;
 	/* margin-top: 7vh; */
+	position: relative;
 }
 
 .mono{
@@ -101,6 +113,34 @@ header{
 	grid-column: 3;
 }
 
+.contents .hTitle{
+	align-self: start;
+	padding-top: 11mm;
+}
+
+.contents .date {
+	align-self: start;
+	padding-top: 11mm;
+	grid-column: 1/3;
+}
+
+.hTitle > p > a > span {
+	font-family: 'Akkurat Pro';
+	vertical-align: super;
+	font-size: 6pt;
+	line-height: 5pt;
+}
+
+a.scroll-link{
+	cursor: pointer;
+	display: block;
+	height: 27pt;
+}
+
+a {
+    all: unset;
+}
+
 /* Paragraph settings */
 
 p {
@@ -116,14 +156,17 @@ p {
 	text-align: justify;
 	letter-spacing: -0.04em;
 	overflow: hidden;
-
+	font-weight: 400;
 }
 
 .pageFive .tWide {
 	grid-column: 1 / 5;
 	height: 250mm;
 	width: 100%;
+	letter-spacing: -0.02em;
+	overflow: hidden;
 	position: absolute;
+	line-height: 11.8pt;
 }
 
 .tNarrow{
@@ -136,7 +179,7 @@ p {
 	grid-row: 4;
 	column-count: 2;
 	column-gap: 2.5mm;
-	height: 45mm;
+	height: 50mm;
 }
 
 .pageSeven .tNarrow{
@@ -145,28 +188,28 @@ p {
 	column-count: 2;
 	column-gap: 2.5mm;
 	overflow: hidden;
-	height: 162mm;
-}
-
-.pageEight .layout.left .tNarrow:nth-of-type(1){
-	grid-row: 1;
-	grid-column: 1 / 3;
-	margin-top: -5.5mm;
-	height: 162mm;
-	overflow: hidden;
+	height: 155mm;
 }
 
 .pageEight .layout.left .tNarrow:nth-of-type(2){
+	grid-row: 1;
+	grid-column: 1 / 3;
+	margin-top: -5.5mm;
+	height: 154mm;
+	overflow: hidden;
+}
+
+.pageEight .layout.left .tNarrow:nth-of-type(3){
 	grid-row: 4;
 	grid-column: 1 / 3;
-	height: 45mm;
+	height: 50mm;
 }
 
 .pageNine .layout.right .tNarrow:nth-of-type(2){
 	grid-row: 1;
 	grid-column: 3 / 5;
 	margin-top: -5.5mm;
-	height: 162mm;
+	height: 154mm;
 	overflow: hidden;
 	position: relative;
 }
@@ -174,7 +217,7 @@ p {
 .pageNine .layout.right .tNarrow:nth-of-type(3){
 	grid-row: 4;
 	grid-column: 3 / 5;
-	height: 45mm;
+	height: 50mm;
 }
 
 .pageTen .layout.left .tNarrow:nth-of-type(1){
@@ -182,7 +225,7 @@ p {
 	margin-top: -5.5mm;
 	column-count: 2;
 	column-gap: 2.5mm;
-	height: 162mm;
+	height: 155mm;
 
 }
 
@@ -190,7 +233,7 @@ p {
 	grid-row: 4;
 	column-count: 2;
 	column-gap: 2.5mm;
-	height: 45mm;
+	height: 50mm;
 }
 
 .pageEleven .tNarrow{
@@ -198,13 +241,13 @@ p {
 	margin-top: -5.5mm;
 	column-count: 2;
 	column-gap: 2.5mm;
-	height: 162mm;
+	height: 154mm;
 }
 
 .imprint .tNarrow{
 	grid-row: 4;
 	grid-column: 1 / 5;
-	height: 45mm;
+	height: 50mm;
 }
 
 .line {
@@ -215,7 +258,8 @@ p {
 	position: relative;
 }
 
-/* Copy space */
+/* Copy space 8-9 */
+
 .elementEight{
 	grid-column: 3/5;
 	grid-row: 1/3;
@@ -237,7 +281,7 @@ p {
 }
 
 .elementEight > p {
-	padding-top: 40mm;
+	padding-top: 48mm;
 	font-size: 800pt;
 	/* mix-blend-mode: invert; */
 	/* color: rgba(0, 0, 0, 0.899);	 */
@@ -261,6 +305,62 @@ p {
 span.symbolCopyTwo {
 	position: absolute;
 }
+
+/* Copy Space 10-11 */
+
+.pageEleven .hTitle{
+	align-self: start;
+	padding-top: 13.8mm;
+	line-height: 19pt;
+}
+
+.pageEleven .hTitle > p {
+	font-size: 14pt;
+}
+
+.symbolEleven {
+	font-size: 300pt;
+	grid-column: 1/5;
+	position: absolute;
+	justify-self: center;
+	margin-top: -60mm;
+}
+
+.optionEleven p {
+  cursor: pointer;
+}
+
+.optionEleven p span {
+  font-size: 9pt;
+  padding-left: 12mm;
+}
+
+.invisible {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.changeTen {
+  position: relative;
+  color: transparent;
+  user-select: none;
+}
+
+.changeTen canvas,
+.changeTen svg {
+	position: absolute !important;
+	top: 0;
+	left: 0;
+	width: 200% !important;
+	height: 200% !important;
+	margin-left: -50%;
+	margin-top: -100%;  
+	pointer-events: none;
+	z-index: 10;
+}
+
+
 
 /* Interaction settings */
 
@@ -331,7 +431,7 @@ span.symbolCopyTwo {
 	display: grid;
 	height: 222mm;
 	width: 145mm;
-	border: 1px dotted rgba(0, 0, 0, 0.4);
+	/* border: 1px dotted rgba(0, 0, 0, 0.4); */
 	margin-top: 4mm;
 	margin-bottom: 4mm;
 	position: relative;
@@ -342,7 +442,7 @@ span.symbolCopyTwo {
 	margin-right: 11mm;
 	grid-template-columns: repeat(4, 23.5%);
 	column-gap: 2.5mm;
-	grid-template-rows: 10mm 147.5mm 26mm 1fr;
+	grid-template-rows: 10mm 139mm 30mm 1fr;
 }
 
 .right{
@@ -350,7 +450,15 @@ span.symbolCopyTwo {
 	margin-right: 9mm;
 	grid-template-columns: repeat(4, 23.5%);
 	column-gap: 2.5mm;
-	grid-template-rows: 10mm 147.5mm 26mm 1fr;
+	grid-template-rows: 10mm 139mm 30mm 1fr;
+}
+
+.firstPage {
+	background-color: black;
+}
+
+.lastPage {
+	background-color: black;
 }
 
 
@@ -368,7 +476,7 @@ span.symbolCopyTwo {
 
 }
 
-.contents .page-number, .firstPage .page-number, .imprint .page-number{
+.contents .page-number, .firstPage .page-number, .imprint .page-number, .lastPage .page-number{
 	display: none;
 }
 
@@ -393,6 +501,10 @@ span.symbolCopyTwo {
   	justify-self: end;
 }
 
+.page-numberIndex{
+	display: none;
+}
+
 
 
 /* crop marks */
@@ -402,15 +514,14 @@ span.symbolCopyTwo {
 	width: 165mm;
 }
 
-
 .tl {
 	position: relative;
 	width: 5mm;
 	height: 5mm;
 	top: 0mm;
 	left: 0mm;
-	border-right: 0.25mm solid black;
-	border-bottom: 0.25mm solid black;
+	border-right: 0.1mm dotted black;
+	border-bottom: 0.1mm dotted black;
 }
 
 .tr {
@@ -419,8 +530,8 @@ span.symbolCopyTwo {
 	height: 5mm;
 	top: 0mm;
 	left: 155mm;
-	border-left: 0.25mm solid black;
-	border-bottom: 0.25mm solid black;
+	border-left: 0.1mm dotted black;
+	border-bottom: 0.1mm dotted black;
 }
 
 .bl {
@@ -428,8 +539,8 @@ span.symbolCopyTwo {
 	width: 5mm;
 	height: 5mm;
 	left: 0mm;
-	border-right: 0.25mm solid black;
-	border-top: 0.25mm solid black;
+	border-right: 0.1mm dotted black;
+	border-top: 0.1mm dotted black;
 }
 
 .br {
@@ -437,8 +548,46 @@ span.symbolCopyTwo {
 	width: 5mm;
 	height: 5mm;
 	left: 155mm;
-	border-left: 0.25mm solid black;
-	border-top: 0.25mm solid black;
+	border-left: 0.1mm dotted black;
+	border-top: 0.1mm dotted black;
+}
+
+.firstPage .tl, .lastPage .tl {
+	position: relative;
+	width: 5mm;
+	height: 5mm;
+	top: 0mm;
+	left: 0mm;
+	border-right: 0.1mm dotted white;
+	border-bottom: 0.1mm dotted white;
+}
+
+.firstPage .tr, .lastPage .tr {
+	position: relative;
+	width: 5mm;
+	height: 5mm;
+	top: 0mm;
+	left: 155mm;
+	border-left: 0.1mm dotted white;
+	border-bottom: 0.1mm dotted white;
+}
+
+.firstPage .bl, .lastPage .bl {
+	position: relative;
+	width: 5mm;
+	height: 5mm;
+	left: 0mm;
+	border-right: 0.1mm dotted white;
+	border-top: 0.1mm dotted white;
+}
+
+.firstPage .br, .lastPage .br {
+	position: relative;
+	width: 5mm;
+	height: 5mm;
+	left: 155mm;
+	border-left: 0.1mm dotted white;
+	border-top: 0.1mm dotted white;
 }
 
 
