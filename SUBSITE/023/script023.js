@@ -100,7 +100,7 @@ window.addEventListener('afterprint', afterPrint);
 
 //cover 
 
-const titleArray = ["⚲", ";", "∶", "_", "◆", "⋯", "⌀", "∴", "✳", "✴", "✷", "✹", "✺"]
+const titleArray = ["!", ";", "∶", "_", "◆", "⋯", "⌀", "∴", "✳", "✴", "✷", "✹", "✺"]
 
 const titleSymbols = document.querySelectorAll('.titleSymbol');
 
